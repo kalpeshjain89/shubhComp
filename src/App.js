@@ -92,6 +92,7 @@ function App() {
         <HelmetProvider>
           <Routes>
             <Route exact path="/" element={<Homepage productCategories={productCategories} />} />
+            <Route exact path="/shubhComp" element={<Homepage productCategories={productCategories} />} />
             <Route exact path="/about" element={<About />} />
             <Route exact path="/contact-us" element={<Contact />} />
             <Route exact path="/products" element={<Products />} />
