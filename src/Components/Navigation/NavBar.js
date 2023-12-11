@@ -32,7 +32,7 @@ const navItems = [
     'id': 'home',
     'text': 'Home',
     'isExpandable': false,
-    'routeTo': '/shubhComp/'
+    'routeTo': '/'
   },
   {
     'id': 'products',
@@ -214,7 +214,7 @@ const NavBar = (props) => {
               variant="h5"
               noWrap
               component={Link}
-              to="/shubhComp/"
+              to="/"
               sx={{
                 mr: 2,
                 display: { xs: 'none', sm: 'block' },
@@ -251,7 +251,7 @@ const NavBar = (props) => {
               variant="h5"
               noWrap
               component={Link}
-              to="/shubhComp/"
+              to="/"
               sx={{
                 mr: 2,
                 display: { sm: 'flex', md: 'none' },
