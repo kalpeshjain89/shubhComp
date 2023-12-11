@@ -33,7 +33,9 @@ const ProductCategories = ({ categories }) => {
                 effect="blur"
               />
             </div>
-            <CardContent>
+            <CardContent sx={{
+                p: 1
+              }}>
               <Typography gutterBottom variant="h3" sx={{
                 fontSize: { xs: '1.25em' },
                 textTransform: 'uppercase'
@@ -50,7 +52,7 @@ const ProductCategories = ({ categories }) => {
           <CardActions
             sx={{
               justifyContent: 'end',
-              pr: 2,
+              p: 1
             }}>
             <Button size="small" component={Link} to={product.routeTo}>
               Explore {product.heading}
