@@ -56,6 +56,23 @@
         opacity: 0.4;
       }
     }
+
+    // .pointer{
+    //   position: absolute;
+    //   opacity: 0;
+    //   background-image: url("../assets/images/mouseover.png");
+    //   cursor: pointer;
+    //   width: 100px;
+    //   height: 100px;
+    //   left:0;
+    //   top: 0
+    //   // left: -10000px;
+    //   // top: -10000px;
+    // }
+
+    // &:hover .pointer{
+    //   opacity: 1;
+    // }
   }
 
   .product-thumb-images-wrapper {
