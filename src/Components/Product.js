@@ -24,7 +24,7 @@ const Product = (props) => {
       <CardActionArea onClick={handleProductClick}>
         <div className='card-media-wrapper'>
           <LazyLoadImage 
-            src={`/images/products/${product?.mainImg?.src}`}
+            src={`./shubhComp/images/products/${product?.mainImg?.src}`}
             alt={product.mainImg.alt}
             placeholderSrc={PlaceholderImage}
             effect="blur"

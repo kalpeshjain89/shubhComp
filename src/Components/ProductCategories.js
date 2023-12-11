@@ -27,7 +27,7 @@ const ProductCategories = ({ categories }) => {
           <CardActionArea component={Link} to={product.routeTo}>
             <div className='card-media-wrapper'>
               <LazyLoadImage
-                src={`/images/homePageProducts/${product?.imgSrc}`}
+                src={`./images/homePageProducts/${product?.imgSrc}`}
                 alt={product.imgAlt}
                 placeholderSrc={PlaceholderImage}
                 effect="blur"
