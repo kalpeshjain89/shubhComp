@@ -39,7 +39,7 @@ const Products = () => {
       let allProducts = null;
       const response = await axios(`/${process.env.REACT_APP_GOOGLE_SHEET_ID}/values/testData`);
       response.data.values.shift(); //Remove first row which is column headers from data
-
+      console.log('response.data.values ', response.data.values)
       allProducts = response.data.values.map((product, index) => {
         if (product.length) { //empty row check
           //Split a string by newline and remove empty strings after splitting
@@ -50,8 +50,10 @@ const Products = () => {
           let allThumbnailsAlt = product[10]?.split(/[\r?\n]/).filter(element => element);
           let allThumbnailsPrices = product[11]?.split(/[.\r?\n]/).filter(element => element);
           console.log('allThumbnailsPrices ', allThumbnailsPrices)
+          console.log('allThumbnailsSrc ', allThumbnailsSrc)
+          console.log('allThumbnailsAlt ', allThumbnailsAlt)
           return {
-            "name": product[0].toLowerCase(),
+            "name": product[0],
             "features": allFeatures?.map(feature => feature.trim()),
             "price": product[5],
             "link": product[4],

@@ -25,24 +25,22 @@ const Catalog = () => {
     backgroundPosition: '0% 0%'
   } : {});
   const [isActive, setIsActive] = useState(0);
-  const [pointerPosition, setPointerPosition] = useState({});
 
   const fetchProduct = async () => {
     try {
       const response = await axios.get(`https://docs.google.com/spreadsheets/d/1ZvGw6Rj62R7tGGzCXn8GdiRQKOe0TrEWBlQSm2EPnCc/gviz/tq?tqx=out:csv&range=A2:M&sheet=testData&tq=SELECT%20*%20WHERE%20A%20=%20%27${name}%27`);
 
-      // https://docs.google.com/spreadsheets/d/1ZvGw6Rj62R7tGGzCXn8GdiRQKOe0TrEWBlQSm2EPnCc/gviz/tq?tqx=out:html&sheet=testData&tq=SELECT%20*%20WHERE%20A%20=%20%27pci%20debug%20card%204digit%27&key=AIzaSyCCbae3DmuiVLEbiG4czrgRx6XJrR60RJ0
-
-      // https://docs.google.com/spreadsheets/d/1ZvGw6Rj62R7tGGzCXn8GdiRQKOe0TrEWBlQSm2EPnCc/gviz/tq?tqx=out:html&range=A2:M&sheet=testData&key=AIzaSyCCbae3DmuiVLEbiG4czrgRx6XJrR60RJ0
-
       const formattedResponse = response.data.replace(/(\r\n|\n|\r|")/gm, " ").split(' ,');
-      console.log('name ', name, response, formattedResponse)
 
       let allFeatures = formattedResponse[3]?.split(/[.\r?\n]/).filter(element => element);
       let allCategories = formattedResponse[1]?.split(/[.\r?\n]/).filter(element => element);
-      let allThumbnailsSrc = formattedResponse[9]?.split(/[\r?\n]/).filter(element => element);
-      let allThumbnailsAlt = formattedResponse[10]?.split(/[\r?\n]/).filter(element => element);
+      let allThumbnailsSrc = formattedResponse[9]?.split(' ').filter(element => element); 
+      let allThumbnailsAlt = formattedResponse[10]?.split(' ').filter(element => element);
       let allThumbnailsPrices = formattedResponse[11]?.split(/[.\r?\n]/).filter(element => element);
+
+      // console.log('allThumbnailsSrc ', allThumbnailsSrc, formattedResponse[9].split(' '))
+      // console.log('allThumbnailsAlt ', allThumbnailsAlt)
+      // console.log('allThumbnailsPrices ', allThumbnailsPrices, formattedResponse[11])
       let fetchedProduct = {
         "name": formattedResponse[0].toLowerCase()?.trim(),
         "features": allFeatures?.map(feature => feature.trim()),
@@ -102,11 +100,6 @@ const Catalog = () => {
     const pageY = event.pageY;
     const x = (pageX - left) / width * 100;
     const y = (pageY - top) / height * 100;
-    // setPointerPosition({ 
-    //   // left: `${event.pageX - left - 50}px`, 
-    //   // top: `${event.pageY - top - 50}px`,
-    //   transform:  `translate3d(${pageX - left - 50}px, ${pageY - top - 50}px, 0px)`
-    // });
     setZoomedImage({ 
       backgroundImage: `url(/images/products/${mainImg.src})`,
       backgroundPosition: `${x}% ${y}%` 
@@ -131,7 +124,6 @@ const Catalog = () => {
                 src={`/images/products/${mainImg?.src}`}
                 alt={mainImg.alt}
               />
-              {/* <span className="pointer" style={pointerPosition} /> */}
             </div>
             <div className="zoomedImage" style={zoomedImage}>
               <img className="watermark" src={PlaceholderImage} alt="" />
@@ -159,7 +151,7 @@ const Catalog = () => {
               {product.name.toUpperCase()}
             </Typography>
             <div className="product-price-wrapper" style={{fontSize: "1.5rem"}}>
-              &#8377; {mainImg.price || product.price}
+              &#8377; {mainImg.price }
             </div>
             {product.features.length > 0 &&
               <>
@@ -183,6 +175,11 @@ const Catalog = () => {
                 }}>
                   Product Link
                 </Typography>
+                <div>
+                  <a href={product.link} target="_blank" rel="noopener noreferrer">
+                    {product.link}
+                  </a>
+                </div>
               </>
             }
           </div>
