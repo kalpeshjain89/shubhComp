@@ -121,7 +121,7 @@ const Catalog = () => {
           <div className="product-image-wrapper">
             <div className="product-image-main" onMouseMove={(event) => handleMouseMove(event)} >
               <img
-                src={`/images/products/${mainImg?.src}`}
+                src={`./images/products/${mainImg?.src}`}
                 alt={mainImg.alt}
               />
             </div>
@@ -133,7 +133,7 @@ const Catalog = () => {
                 {product.thumbnails.map((thumb, index) => (
                   <div className={isActive === index ? 'active' : ''} onClick={() => handleThumbClick(thumb, index)} key={index}>
                      <LazyLoadImage 
-                      src={`/images/products/${thumb?.src}`}
+                      src={`./images/products/${thumb?.src}`}
                       alt={thumb.alt}
                       placeholderSrc={PlaceholderImage}
                       effect="blur"
