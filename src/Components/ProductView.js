@@ -145,12 +145,12 @@ const Catalog = () => {
           </div>
           <div className="product-details-wrapper">
             <Typography gutterBottom variant="h1" sx={{
-              fontSize: '2.5em',
+              fontSize: { xs: '2em', md: '2.5em' },
               mb: 0
             }}>
               {product.name.toUpperCase()}
             </Typography>
-            <div className="product-price-wrapper" style={{fontSize: "1.5rem"}}>
+            <div className="product-price-wrapper" style={{fontSize: "1.5em"}}>
               &#8377; {mainImg.price }
             </div>
             {product.features.length > 0 &&
@@ -159,7 +159,7 @@ const Catalog = () => {
                   fontSize: '1.25em',
                   m: 0
                 }}>
-                  Product Description & Features
+                  Product description & features
                 </Typography>
                 <ul className="product-features-list">
                   {features}
@@ -173,7 +173,7 @@ const Catalog = () => {
                   m: 0,
                   mt: 3
                 }}>
-                  Product Link
+                  Product link
                 </Typography>
                 <div>
                   <a href={product.link} target="_blank" rel="noopener noreferrer">
