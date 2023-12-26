@@ -184,6 +184,7 @@ const NavBar = (props) => {
         pathname: '/products',
         search: `?search=${searchInput}`
       });
+      setMobileSearchOpen(!mobileSearchOpen);
     }
   };
 

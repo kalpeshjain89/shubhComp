@@ -33,7 +33,7 @@ const Product = (props) => {
         <CardContent>
           <Typography gutterBottom variant="h5" component="div" sx={{
             mb: 0,
-            fontSize: {xs: '1.25em', md: '1.5em'},
+            fontSize: { xs: '1.25em', md: '1.5em' },
             lineHeight: 1,
             textTransform: "uppercase",
             wordWrap: "break-word"
