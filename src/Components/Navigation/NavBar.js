@@ -77,8 +77,9 @@ const NavBar = (props) => {
       setExpandList(!expandList);
     }
     else {
-      await setMobileOpen(false);
-      navigate(`${item.routeTo}`);
+      setTimeout(() => { //to fix overlay issue in mobile
+        navigate(`${item.routeTo}`);
+      }, 150);
     }
   };
 
@@ -99,11 +100,11 @@ const NavBar = (props) => {
         </ListItemButton>
         <Collapse in={expandList} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            <ListItemButton sx={{ pl: 4 }} component={Link} to="/products">
+            <ListItemButton sx={{ pl: 4 }} onClick={(event) => handleClick(event, {routeTo: '/products'})}>
               <ListItemText primary="All Products" />
             </ListItemButton>
             {props.categories.map((category, index) => (
-              <ListItemButton sx={{ pl: 4, textTransform: 'capitalize' }} component={Link} to={category.routeTo} key={index}>
+              <ListItemButton sx={{ pl: 4, textTransform: 'capitalize' }} onClick={(event) => handleClick(event, category)} key={index}>
                 <ListItemText primary={category.heading} />
               </ListItemButton>
             ))}
