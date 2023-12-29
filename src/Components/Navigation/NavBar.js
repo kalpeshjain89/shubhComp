@@ -79,7 +79,7 @@ const NavBar = (props) => {
     else {
       setTimeout(() => { //to fix overlay issue in mobile
         navigate(`${item.routeTo}`);
-      }, 150);
+      }, 200);
     }
   };
 
