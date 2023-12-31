@@ -1,13 +1,21 @@
 .products-categories {
     .card-media-wrapper{
-        // height: 150px;
+        height: 170px;
     }
 }
 
-@media screen and (min-width: 900px){
-    .products-page {
+@media screen and (min-width: 600px){
+    .products-categories {
         .card-media-wrapper{
-            height: 200px;
+            height: 250px;
         }
     }
 }
+  
+@media screen and (min-width: 900px){
+    .products-categories {
+        .card-media-wrapper{
+            height: 275px;
+        }
+    }
+  }
