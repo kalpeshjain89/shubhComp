@@ -111,6 +111,7 @@ const Catalog = () => {
       <Helmet>
         <title>Shubham Computers - {product.name}</title>
         <meta name="description" content="Shubham Computers - Product Details" />
+        <meta name="keywords" content={product.name}></meta>
       </Helmet>
       <Box sx={{
         p: { sm: 0, md: 4 },
