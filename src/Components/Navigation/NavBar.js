@@ -77,8 +77,9 @@ const NavBar = (props) => {
       setExpandList(!expandList);
     }
     else {
-      await setMobileOpen(false);
-      navigate(`${item.routeTo}`);
+      setTimeout(() => { //to fix overlay issue in mobile
+        navigate(`${item.routeTo}`);
+      }, 300);
     }
   };
 
@@ -99,11 +100,11 @@ const NavBar = (props) => {
         </ListItemButton>
         <Collapse in={expandList} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            <ListItemButton sx={{ pl: 4 }} component={Link} to="/products">
+            <ListItemButton sx={{ pl: 4 }} onClick={(event) => handleClick(event, {routeTo: '/products'})}>
               <ListItemText primary="All Products" />
             </ListItemButton>
             {props.categories.map((category, index) => (
-              <ListItemButton sx={{ pl: 4, textTransform: 'capitalize' }} component={Link} to={category.routeTo} key={index}>
+              <ListItemButton sx={{ pl: 4, textTransform: 'capitalize' }} onClick={(event) => handleClick(event, category)} key={index}>
                 <ListItemText primary={category.heading} />
               </ListItemButton>
             ))}
@@ -121,7 +122,7 @@ const NavBar = (props) => {
       <a href="https://m.facebook.com/1171466706257889/" target="_blank" rel="noopener noreferrer">
           <FacebookIcon />Facebook
         </a>
-        <a href="//api.whatsapp.com/send?phone=919322249976&text=https://www.shubhamcomputers.com/%0A%0AI'm interested in your products and I have a few questions. Can you help?" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/917021531651?text=" target="_blank" rel="noopener noreferrer">
           <WhatsAppIcon /> WhatsApp
         </a>
         <a href="https://instagram.com/shubhamcomputersbynaresh?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener noreferrer">
@@ -184,6 +185,7 @@ const NavBar = (props) => {
         pathname: '/products',
         search: `?search=${searchInput}`
       });
+      setMobileSearchOpen(!mobileSearchOpen);
     }
   };
 

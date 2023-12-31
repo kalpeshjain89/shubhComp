@@ -1,6 +1,6 @@
 import React, { Suspense, lazy, useState, useEffect } from "react";
 import axios from "./api/services";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async';
 import "./styles/App.scss";
 import 'react-lazy-load-image-component/src/effects/blur.css';

@@ -16,7 +16,7 @@
   width: 100%;
   display: flex;
   justify-content: unset;
-  padding: 0 0.5em;
+  // padding: 0 0.5em;
 }
 
 .footer-link-items {
@@ -26,7 +26,11 @@
   text-align: left;
   box-sizing: border-box;
   flex-basis: 100%;
-  margin: 0 0.5em;
+  // margin: 0 0.5em;
+
+  &:first-child{
+    margin-right:1em;
+  }
 
   h2 {
     margin-bottom: 16px;
@@ -38,10 +42,11 @@
     margin-bottom: 0.5em;
     display: flex;
     font-size: 14px;
+    align-items: center;
   }
 
   svg {
-    margin-right: 0.5em;
+    margin-right: 8px;
   }
 }
 
@@ -101,6 +106,10 @@
   
     a {
       font-size: 16px;
+    }
+
+    svg {
+      margin-right: 0.5em;
     }
   }
 

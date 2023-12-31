@@ -18,18 +18,18 @@ export default function PageNotFound() {
         variant="h5"
         noWrap
         sx={{
-          fontSize: { xs: '1.5em', sm: '2em', md: '3em' },
+          fontSize: { xs: '1.5em', md: '2em' },
           textAlign: 'center'
         }}
       >
-        <ReportGmailerrorredIcon sx={{ fontSize: '5em' }} />
+        <ReportGmailerrorredIcon sx={{ fontSize: { xs: '5em', md: '3em' } }} />
         <div>Oops! Page not found</div>
       </Typography>
       <Typography
         variant="body1"
         noWrap
         sx={{
-          fontSize: { xs: '1.5em', sm: '1.5em', md: '1.5em' },
+          fontSize: { xs: '1em' },
           mb: 2,
           mt: 1
         }}

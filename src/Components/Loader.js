@@ -13,7 +13,7 @@ const Loader = ({message}) => {
             justifyContent: 'center',
             flexDirection: 'column'
         }}>
-            <CircularProgress size={50} color="inherit" />
+            <CircularProgress size={50}/>
             <Typography
                 variant="h2"
                 noWrap

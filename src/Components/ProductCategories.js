@@ -24,10 +24,13 @@ const ProductCategories = ({ categories }) => {
           flexBasis: { xs: '48%', sm: '31%', md: '23%' },
           border: '1.5px solid #ccc'
         }} key={product.heading}>
-          <CardActionArea component={Link} to={product.routeTo}>
+          <CardActionArea component={Link} to={product.routeTo}
+          sx={{
+            minHeight: { xs: '240px', sm:'360px', md: '415px' }
+          }}>
             <div className='card-media-wrapper'>
               <LazyLoadImage
-                src={`/images/homePageProducts/${product?.imgSrc}`}
+                src={`./images/homePageProducts/${product?.imgSrc}`}
                 alt={product.imgAlt}
                 placeholderSrc={PlaceholderImage}
                 effect="blur"
@@ -37,7 +40,7 @@ const ProductCategories = ({ categories }) => {
                 p: 1
               }}>
               <Typography gutterBottom variant="h3" sx={{
-                fontSize: { xs: '1.25em' },
+                fontSize: { xs: '1em', md: '1.25em' },
                 textTransform: 'uppercase'
               }}>
                 {product.heading}
@@ -55,7 +58,7 @@ const ProductCategories = ({ categories }) => {
               p: 1
             }}>
             <Button size="small" component={Link} to={product.routeTo}>
-              Explore {product.heading}
+              Explore products
             </Button>
           </CardActions>
         </Card>

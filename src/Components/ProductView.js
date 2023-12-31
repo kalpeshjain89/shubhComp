@@ -111,6 +111,7 @@ const Catalog = () => {
       <Helmet>
         <title>Shubham Computers - {product.name}</title>
         <meta name="description" content="Shubham Computers - Product Details" />
+        <meta name="keywords" content={product.name}></meta>
       </Helmet>
       <Box sx={{
         p: { sm: 0, md: 4 },
@@ -121,7 +122,7 @@ const Catalog = () => {
           <div className="product-image-wrapper">
             <div className="product-image-main" onMouseMove={(event) => handleMouseMove(event)} >
               <img
-                src={`/images/products/${mainImg?.src}`}
+                src={`./images/products/${mainImg?.src}`}
                 alt={mainImg.alt}
               />
             </div>
@@ -133,7 +134,7 @@ const Catalog = () => {
                 {product.thumbnails.map((thumb, index) => (
                   <div className={isActive === index ? 'active' : ''} onClick={() => handleThumbClick(thumb, index)} key={index}>
                      <LazyLoadImage 
-                      src={`/images/products/${thumb?.src}`}
+                      src={`./images/products/${thumb?.src}`}
                       alt={thumb.alt}
                       placeholderSrc={PlaceholderImage}
                       effect="blur"
@@ -145,12 +146,12 @@ const Catalog = () => {
           </div>
           <div className="product-details-wrapper">
             <Typography gutterBottom variant="h1" sx={{
-              fontSize: '2.5em',
+              fontSize: { xs: '2em', md: '2.5em' },
               mb: 0
             }}>
               {product.name.toUpperCase()}
             </Typography>
-            <div className="product-price-wrapper" style={{fontSize: "1.5rem"}}>
+            <div className="product-price-wrapper" style={{fontSize: "1.5em"}}>
               &#8377; {mainImg.price }
             </div>
             {product.features.length > 0 &&
@@ -159,7 +160,7 @@ const Catalog = () => {
                   fontSize: '1.25em',
                   m: 0
                 }}>
-                  Product Description & Features
+                  Product description & features
                 </Typography>
                 <ul className="product-features-list">
                   {features}
@@ -173,7 +174,7 @@ const Catalog = () => {
                   m: 0,
                   mt: 3
                 }}>
-                  Product Link
+                  Product link
                 </Typography>
                 <div>
                   <a href={product.link} target="_blank" rel="noopener noreferrer">

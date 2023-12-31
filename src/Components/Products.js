@@ -31,7 +31,7 @@ const Products = () => {
   const [subCategories, setSubCategories] = React.useState([]);
   const [subCategory, setSubCategory] = React.useState('all');
   const [sortProductsBy, setSortProductsBy] = useState('nameAsc');
-  const [noResultsFound, setNoResultsFound] = React.useState('');
+  const [noResultsFound, setNoResultsFound] = React.useState('No products found. Please refine your search and try again.');
   const [isLoading, setLoading] = React.useState(true);
 
   const fetchAllProducts = async () => {
@@ -49,9 +49,9 @@ const Products = () => {
           let allThumbnailsSrc = product[9]?.split(/[\r?\n]/).filter(element => element); 
           let allThumbnailsAlt = product[10]?.split(/[\r?\n]/).filter(element => element);
           let allThumbnailsPrices = product[11]?.split(/[.\r?\n]/).filter(element => element);
-          console.log('allThumbnailsPrices ', allThumbnailsPrices)
-          console.log('allThumbnailsSrc ', allThumbnailsSrc)
-          console.log('allThumbnailsAlt ', allThumbnailsAlt)
+          // console.log('allThumbnailsPrices ', allThumbnailsPrices)
+          // console.log('allThumbnailsSrc ', allThumbnailsSrc)
+          // console.log('allThumbnailsAlt ', allThumbnailsAlt)
           return {
             "name": product[0],
             "features": allFeatures?.map(feature => feature.trim()),
@@ -390,7 +390,7 @@ const Products = () => {
 
                 )}
         </Box>
-        <Box sx={{
+        {products.length > 0 && <Box sx={{
           display: 'flex',
           justifyContent: 'center',
           my: 3
@@ -401,6 +401,7 @@ const Products = () => {
             </Button>
           )}
         </Box>
+        }
       </Container>
     </div>
   );
