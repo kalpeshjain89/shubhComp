@@ -18,7 +18,7 @@ const socialMediaActions = [
   { icon: <FacebookIcon />, name: 'Facebook', url: 'https://m.facebook.com/1171466706257889/' },
   { icon: <WhatsAppIcon />, name: 'WhatsApp', url: 'https://wa.me/917021531651?text=' },
   { icon: <InstagramIcon />, name: 'Instagram', url: 'https://instagram.com/shubhamcomputersbynaresh?igshid=YmMyMTA2M2Y=' },
-  { icon: <TelegramIcon />, name: 'Telegram', url: 'https://t.me/+RRCFqO62AcP8UUpR' },
+  { icon: <TelegramIcon />, name: 'Telegram', url: 'https://t.me/+RRCFqO62AcP8UUpR' }
 ];
 
 function Footer() {
