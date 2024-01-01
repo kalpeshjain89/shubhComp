@@ -28,7 +28,7 @@ const Catalog = () => {
 
   const fetchProduct = async () => {
     try {
-      const response = await axios.get(`https://docs.google.com/spreadsheets/d/1ZvGw6Rj62R7tGGzCXn8GdiRQKOe0TrEWBlQSm2EPnCc/gviz/tq?tqx=out:csv&range=A2:M&sheet=testData&tq=SELECT%20*%20WHERE%20A%20=%20%27${name}%27`);
+      const response = await axios.get(`https://docs.google.com/spreadsheets/d/1ZvGw6Rj62R7tGGzCXn8GdiRQKOe0TrEWBlQSm2EPnCc/gviz/tq?tqx=out:csv&range=A2:M&sheet=products&tq=SELECT%20*%20WHERE%20A%20=%20%27${name}%27`);
 
       const formattedResponse = response.data.replace(/(\r\n|\n|\r|")/gm, " ").split(' ,');
 

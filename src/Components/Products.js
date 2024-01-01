@@ -37,7 +37,7 @@ const Products = () => {
   const fetchAllProducts = async () => {
     try {
       let allProducts = null;
-      const response = await axios(`/${process.env.REACT_APP_GOOGLE_SHEET_ID}/values/testData`);
+      const response = await axios(`/${process.env.REACT_APP_GOOGLE_SHEET_ID}/values/products`);
       response.data.values.shift(); //Remove first row which is column headers from data
       // console.log('response.data.values ', response.data.values)
       allProducts = response.data.values.map((product, index) => {
