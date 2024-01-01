@@ -58,18 +58,18 @@ function App() {
     if (productCategoriesSession == null) {
       sessionStorage.setItem('productCategoriesSession', now);
       await fetchProductCategories();
-      console.log('session set')
+      console.log('app session set');
     }
     else {
       if (now - productCategoriesSession > hours * 60 * 60 * 1000) {
         sessionStorage.removeItem('productCategoriesSession');
         sessionStorage.setItem('productCategoriesSession', now);
         await fetchProductCategories();
-        console.log('session refreshed')
+        console.log('app session refreshed');
       }
       else {
-        console.log('session exists')
-        console.log('productCategories from session ', productCategories)
+        console.log('app session exists');
+        console.log('productCategories from session ', productCategories);
         if (productCategories.length) {
           initializeProductCategories(productCategories);
         }
