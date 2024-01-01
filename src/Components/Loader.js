@@ -18,7 +18,7 @@ const Loader = ({message}) => {
                 variant="h2"
                 noWrap
                 sx={{
-                    fontSize: { xs: '1.5em', sm: '2em', md: '3.75em' },
+                    fontSize: { xs: '1em', sm: '2em', md: '3em' },
                     mt: 2
                 }}
             >
