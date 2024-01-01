@@ -10,6 +10,7 @@ const About = () => {
     <div>
       <Helmet>
         <title>Shubham Computers - About Us</title>
+        <meta name="keywords" content="Shubham Computers - About Us" />
         <meta name="description" content="Shubham Computers - About Us" />
       </Helmet>
       <HeroImage />

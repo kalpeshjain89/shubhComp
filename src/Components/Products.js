@@ -39,7 +39,7 @@ const Products = () => {
       let allProducts = null;
       const response = await axios(`/${process.env.REACT_APP_GOOGLE_SHEET_ID}/values/testData`);
       response.data.values.shift(); //Remove first row which is column headers from data
-      console.log('response.data.values ', response.data.values)
+      // console.log('response.data.values ', response.data.values)
       allProducts = response.data.values.map((product, index) => {
         if (product.length) { //empty row check
           //Split a string by newline and remove empty strings after splitting
@@ -49,11 +49,9 @@ const Products = () => {
           let allThumbnailsSrc = product[9]?.split(/[\r?\n]/).filter(element => element); 
           let allThumbnailsAlt = product[10]?.split(/[\r?\n]/).filter(element => element);
           let allThumbnailsPrices = product[11]?.split(/[.\r?\n]/).filter(element => element);
-          // console.log('allThumbnailsPrices ', allThumbnailsPrices)
-          // console.log('allThumbnailsSrc ', allThumbnailsSrc)
-          // console.log('allThumbnailsAlt ', allThumbnailsAlt)
           return {
             "name": product[0],
+            "seo_keywords": `${product[0]} details`,
             "features": allFeatures?.map(feature => feature.trim()),
             "price": product[5],
             "link": product[4],
@@ -150,18 +148,18 @@ const Products = () => {
     if (productsSession == null) {
       sessionStorage.setItem('productsSession', currentTime);
       await fetchAllProducts();
-      console.log('session set')
+      console.log('products session set');
     }
     else {
       if (currentTime - productsSession > hours * 60 * 60 * 1000) {
         sessionStorage.removeItem('productsSession');
         sessionStorage.setItem('productsSession', currentTime);
         await fetchAllProducts();
-        console.log('session refreshed')
+        console.log('products session refreshed');
       }
       else {
-        console.log('session exists')
-        console.log('allProducts from session ', allProducts)
+        console.log('products session exists');
+        console.log('allProducts from session ', allProducts);
         if (allProducts.length) {
           initializeProducts(allProducts);
           initializeCategories(allProducts);
@@ -265,6 +263,7 @@ const Products = () => {
     <div>
       <Helmet>
         <title>Shubham Computers - Our Products</title>
+        <meta name="keywords" content="Shubham Computers - Our Products" />
         <meta name="description" content="Shubham Computers - Our Products" />
       </Helmet>
       <Container maxWidth="xl" className="products-page">
