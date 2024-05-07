@@ -11,7 +11,7 @@ import PlaceholderImage from '../assets/images/logo.png';
 const Catalog = () => {
   const { name } = useParams();
   const location = useLocation();
-  console.log('location ', location)
+  // console.log('location ', location);
 
   const [product, setProduct] = useState(location.state || null);
   const [features, setFeatures] = useState(location.state ? location.state.features.map((desc, index) => <li key={index}>{desc}</li>) : []);
@@ -28,7 +28,7 @@ const Catalog = () => {
 
   const fetchProduct = async () => {
     try {
-      const response = await axios.get(`https://docs.google.com/spreadsheets/d/1ZvGw6Rj62R7tGGzCXn8GdiRQKOe0TrEWBlQSm2EPnCc/gviz/tq?tqx=out:csv&range=A2:M&sheet=testData&tq=SELECT%20*%20WHERE%20A%20=%20%27${name}%27`);
+      const response = await axios.get(`https://docs.google.com/spreadsheets/d/1ZvGw6Rj62R7tGGzCXn8GdiRQKOe0TrEWBlQSm2EPnCc/gviz/tq?tqx=out:csv&range=A2:M&sheet=products&tq=SELECT%20*%20WHERE%20A%20=%20%27${name}%27`);
 
       const formattedResponse = response.data.replace(/(\r\n|\n|\r|")/gm, " ").split(' ,');
 
@@ -38,15 +38,12 @@ const Catalog = () => {
       let allThumbnailsAlt = formattedResponse[10]?.split(' ').filter(element => element);
       let allThumbnailsPrices = formattedResponse[11]?.split(/[.\r?\n]/).filter(element => element);
 
-      // console.log('allThumbnailsSrc ', allThumbnailsSrc, formattedResponse[9].split(' '))
-      // console.log('allThumbnailsAlt ', allThumbnailsAlt)
-      // console.log('allThumbnailsPrices ', allThumbnailsPrices, formattedResponse[11])
       let fetchedProduct = {
         "name": formattedResponse[0].toLowerCase()?.trim(),
+        "seo_keywords": `${formattedResponse[0].toLowerCase()?.trim()} details`,
         "features": allFeatures?.map(feature => feature.trim()),
         "price": formattedResponse[5],
         "link": formattedResponse[4],
-        // "categories": allCategories.map(category => category.trim().toLowerCase().replaceAll(' ', '-')),
         "categories": allCategories?.map(category => category.trim().toLowerCase()),
         "keywords": formattedResponse[6]?.split(' '),
         "mainImg": {
@@ -111,7 +108,7 @@ const Catalog = () => {
       <Helmet>
         <title>Shubham Computers - {product.name}</title>
         <meta name="description" content="Shubham Computers - Product Details" />
-        <meta name="keywords" content={product.name}></meta>
+        <meta name="keywords" content={product.seo_keywords}></meta>
       </Helmet>
       <Box sx={{
         p: { sm: 0, md: 4 },

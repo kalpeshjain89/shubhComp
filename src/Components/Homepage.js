@@ -11,8 +11,8 @@ const Homepage = ({productCategories}) => {
     <div>
       <Helmet>
         <title>Shubham Computers - Home</title>
-        <meta name="description" content="Shubham Computers Mumbai is a leading supplier of electronic components including IC's , Programmers, Reballing Solutions, DC Jacks and much more." />
-        <meta name="keywords" content="Shubham Computers, Shubham Computers Mumbai, Computer Accessories." />
+        <meta name="description" content="Shubham Computers Mumbai is a leading supplier of electronic components including IC's , Programmers, Reballing Solutions, DC Jacks and much more" />
+        <meta name="keywords" content="Shubham Computers, Shubham Computers Mumbai, Computer Accessories" />
       </Helmet>
       <HeroImage />
       <Box sx={{

@@ -1,7 +1,6 @@
 .product-wrapper {
   padding: 20px;
   background-color: #FFFFFF;
-  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -43,19 +42,10 @@
     display: flex;
     border: 1.5px solid #CCC;
     cursor: pointer;
-    // padding: 1em;
 
     img {
       width: 100%;
     }
-    
-    // &:hover + .zoomedImage{
-    //   display: block;
-      
-    //   .watermark{
-    //     opacity: 0.4;
-    //   }
-    // }
   }
 
   .product-thumb-images-wrapper {

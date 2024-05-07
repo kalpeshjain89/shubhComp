@@ -13,6 +13,7 @@ const Contact = () => {
     <div>
       <Helmet>
         <title>Shubham Computers - Contact Us</title>
+        <meta name="keywords" content="Shubham Computers - Contact Us" />
         <meta name="description" content="Shubham Computers - Contact Us" />
       </Helmet>
       <Box sx={{
