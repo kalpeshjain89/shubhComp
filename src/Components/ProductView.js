@@ -21,7 +21,7 @@ const Catalog = () => {
     price: location.state.thumbnails[0].price || location.state.price
   } : {});
   const [zoomedImage, setZoomedImage] = useState(location.state ? {
-    backgroundImage: `url(/images/products/${location.state.mainImg.src})`,
+    backgroundImage: `url(./images/products/${location.state.mainImg.src})`,
     backgroundPosition: '0% 0%'
   } : {});
   const [isActive, setIsActive] = useState(0);
@@ -64,7 +64,7 @@ const Catalog = () => {
       setFeatures(fetchedProduct.features.map((desc, index) => <li key={index}>{desc}</li>))
       setMainImg(fetchedProduct.mainImg);
       setZoomedImage({
-        backgroundImage: `url(/images/products/${fetchedProduct.mainImg.src})`,
+        backgroundImage: `url(./images/products/${fetchedProduct.mainImg.src})`,
         backgroundPosition: '0% 0%'
       });
     }
@@ -87,7 +87,7 @@ const Catalog = () => {
       price: thumbnail.price
     });
     setZoomedImage({
-      backgroundImage: `url(/images/products/${thumbnail.src})`
+      backgroundImage: `url(./images/products/${thumbnail.src})`
     });
   };
 
@@ -98,7 +98,7 @@ const Catalog = () => {
     const x = (pageX - left) / width * 100;
     const y = (pageY - top) / height * 100;
     setZoomedImage({ 
-      backgroundImage: `url(/images/products/${mainImg.src})`,
+      backgroundImage: `url(./images/products/${mainImg.src})`,
       backgroundPosition: `${x}% ${y}%` 
     });
   }
