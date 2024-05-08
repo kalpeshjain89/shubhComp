@@ -21,12 +21,15 @@ const ProductCategories = ({ categories }) => {
     }}>
       {categories.map((product) => (
         <Card sx={{
-          flexBasis: { xs: '48%', sm: '31%', md: '23%' },
-          border: '1.5px solid #ccc'
+          flexBasis: { xs: '48%', sm: '30.5%', md: '22.5%' },
+          border: '1.5px solid #ccc',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between'
         }} key={product.heading}>
           <CardActionArea component={Link} to={product.routeTo}
           sx={{
-            minHeight: { xs: '240px', sm:'360px', md: '415px' }
+            minHeight: 'auto'
           }}>
             <div className='card-media-wrapper'>
               <LazyLoadImage

@@ -17,7 +17,7 @@ const Product = (props) => {
 
   return (
     <Card sx={{
-      flexBasis: { xs: '48%', sm: '31%', md: '23%', lg: '18%' },
+      flexBasis: { xs: '48%', sm: '30.5%', md: '22.5%', lg: '17.5%' },
       position: 'relative',
       border: '1.5px solid #ccc'
     }} key={product.id} className='product-list'>

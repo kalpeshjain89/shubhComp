@@ -15,8 +15,9 @@ const Homepage = ({productCategories}) => {
         <meta name="keywords" content="Shubham Computers, Shubham Computers Mumbai, Computer Accessories" />
       </Helmet>
       <HeroImage />
-      <Box sx={{
+      <Box maxWidth="xl" sx={{
         px: { xs: 2, md: 4 },
+        margin: '0 auto',
         pt: 4,
         backgroundColor: '#FAFAFA'
       }}

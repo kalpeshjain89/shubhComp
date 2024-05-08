@@ -14,9 +14,10 @@ const About = () => {
         <meta name="description" content="Shubham Computers - About Us" />
       </Helmet>
       <HeroImage />
-      <Box sx={{
+      <Box maxWidth="xl" sx={{
         px: { xs: 2, md: 4 },
         py: 4,
+        margin: '0 auto',
         backgroundColor: '#FAFAFA'
       }}
       >
@@ -25,7 +26,7 @@ const About = () => {
           noWrap
           sx={{
             textAlign: 'center',
-            fontSize: {xs: '1.5em', sm: '2em', md: '3.75em' }
+            fontSize: { xs: '1.5em', sm: '2em', md: '3.75em' }
           }}
         >
           About Shubham Computers
