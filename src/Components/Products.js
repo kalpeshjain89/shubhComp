@@ -125,7 +125,8 @@ const Products = () => {
     else if (searchParams.get('search')) {//filter allProducts by search field in navbar
       let searchQuery = searchParams.get('search');
       results = allProducts.filter((product) => {
-        return product.name.toLowerCase().includes(searchQuery.toLowerCase());
+        let seacrhTarget = [product.name, ...product.keywords, ...product.categories].map(item => item.toLowerCase());
+        return seacrhTarget.includes(searchQuery.toLowerCase());
       });
       productCategoryHeader = searchQuery;
     }
